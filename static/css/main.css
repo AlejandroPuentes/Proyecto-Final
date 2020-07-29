@@ -1,0 +1,17 @@
+body {
+    background: #3c6382;
+}
+
+.container {
+    position: relative;
+    background: url(../../img/modelosp/spriteprincipal.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 570px;
+}
+
+.configtable {
+    float: left;
+    border: 1px solid black;
+}
