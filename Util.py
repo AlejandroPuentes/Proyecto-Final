@@ -5,27 +5,27 @@ from PIL import Image, ImageTk
 
 colorFondo = "#006"
 colorLetra = "#fff"
-
+##ventana
 ventana = tk.Tk()
 ventana.title("Cajero")
 ventana.geometry("749x721")
 ventana.resizable(width=0, height=0)
 ventana.configure(background=colorFondo)
-#Imagenes
-'''imagen = PhotoImage(file="Cajero/DiseñoSprites.png")
-fondo = Label(ventana,image=imagen).place(x=0,y=0)
-imagen2 = PhotoImage(file="Cajero/Davivienda.png")
 
-fondo2 = Label(ventana,image=imagen2).place(x=200,y=200)'''
-image = Image.open("Cajero/DiseñoSprites.png")
+
+##fondo
+image = Image.open("Sprites/Cajero/DiseñoSprites.png")
 image.thumbnail((749,721))
 tkimage = ImageTk.PhotoImage(image)
 bckground = Label(ventana, image=tkimage, width = 1000, height = 980).pack()
-imagen2 = PhotoImage(file="Cajero/BancoAgrario_opt.png")
-fondo2 = Label(ventana,image=imagen2).place(x=150,y=125)
+##imagen de pantalla
+imagen2 = Image.open("Sprites/Pantalla/Davivienda.png")
+imagen2.thumbnail((465,365))
+tkimage2 = ImageTk.PhotoImage(imagen2)
+fondo2 = Label(ventana,image=tkimage2,width =445,height = 365 ).place(x=150,y=125)
 
 #botones
-img = Image.open("Cajero/1.png")
+img = Image.open("Sprites/Button/1.png")
 img = img.resize((100, 65), Image.ANTIALIAS) # Redimension (Alto, Ancho)
 img = ImageTk.PhotoImage(img)
 btn1 = Button(ventana,image=img,text="Hola").place(x=20,y=415)
