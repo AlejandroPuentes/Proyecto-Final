@@ -3,8 +3,9 @@ from abc import ABC, abstractmethod
 from FactoriaInterfaz import *
 from Cajero import *
 
-class AbstractBuilder():
+class AbstractBuilder(ABC):
 
+    @abstractmethod
     def __init__(self):
         self.Cajero = None
         self.AbstractInterfaz = None
@@ -68,5 +69,5 @@ class BuilderManager():
     def buildCajero(self):
         self.builder.buildPantalla()
     
-    def getCajero(self):
-        return self.builder.getCajero()
+    ##def getCajero(self):
+        ##return self.builder.getCajero()

@@ -1,10 +1,5 @@
 from abc import ABC, abstractmethod
 
-import tkinter as tk
-from tkinter import ttk
-from tkinter import *
-from PIL import Image, ImageTk
-
 from ProductoInterfaz import *
 
 class AbstractInterfaz(ABC):
