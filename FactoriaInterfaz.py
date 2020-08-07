@@ -11,29 +11,29 @@ class AbstractInterfaz(ABC):
 class FabricaScreenPrincipal(AbstractInterfaz):
 
     def crearPantalla(self):
-        return Pantalla0()
+        return Pantalla0().getImage()
 
 
 class FabricaScreens(AbstractInterfaz):
 
     def crearPantalla(self):
-        return Pantalla1()
+        return Pantalla1().getImage()
 
 
 class FabricaAgrario(AbstractInterfaz):
 
     def crearPantalla(self):
-        return PantallaAgrario()
+        return PantallaAgrario().getImage()
 
 
 class FabricaBancolombia(AbstractInterfaz):
 
     def crearPantalla(self):
-        return PantallaBancolombia()
+        return PantallaBancolombia().getImage()
         
 
 class FabricaDavivienda(AbstractInterfaz):
 
     def crearPantalla(self):
-        return PantallaDavivienda()
+        return PantallaDavivienda().getImage()
         

@@ -1,14 +1,14 @@
-from .Interfaz import Interfaz
+#from Interfaz import Interfaz
 
-class Botones():
-    def __init__(self):
-        self.nombre=None
-        self.tamano=None
-        self.imagen=None
+#class Botones():
+    #def __init__(self):
+        #self.nombre=None
+        #self.tamano=None
+        #self.imagen=None
     
     
-    def crearBoton (self):
-        pass
+    #def crearBoton (self):
+        #pass
 
 ''' #botones
         self.img = Image.open("Sprites/Button/1.png")
