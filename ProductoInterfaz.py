@@ -1,26 +1,21 @@
-from abc import ABC, abstractmethod
-
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
 from PIL import Image, ImageTk
 
-class AbstractProducto(ABC):
+class AbstractProducto():
 
-    @abstractmethod
     def __init__(self):
-        pass
-
+        self.image = 'Ruta cualquiera'
+    
     def getImage(self):
-        pass
+        return self.image
 
 
 class Pantalla0(AbstractProducto):
     def __init__(self):
         self.image = 'Sprites/Pantalla/0.png'
 
-    def getImage(self):
-        return self.image
 
 class Pantalla1(AbstractProducto):
     def __init__(self):
