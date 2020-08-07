@@ -8,6 +8,7 @@ class AbstractBuilder(ABC):
     def __init__(self):
         self.AbstractInterfaz = None
     
+    @abstractmethod
     def buildPantalla(self):
         pass
 
@@ -60,7 +61,5 @@ class BuilderManager():
         self.builder = builder
     
     def buildCajero(self):
-        self.builder.buildPantalla()
+        return self.builder.buildPantalla()
     
-    def getCajero(self):
-        return self.builder.getCajero()

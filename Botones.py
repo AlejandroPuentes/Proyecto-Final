@@ -1,6 +1,4 @@
-#from Interfaz import Interfaz
-
-#class Botones():
+#class Boton1():
     #def __init__(self):
         #self.nombre=None
         #self.tamano=None

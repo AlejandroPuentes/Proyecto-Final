@@ -9,10 +9,10 @@ class AbstractProducto(ABC):
 
     @abstractmethod
     def __init__(self):
-        self.image = 'rutaAbstracta'
+        pass
 
     def getImage(self):
-        return self.image
+        pass
 
 
 class Pantalla0(AbstractProducto):
