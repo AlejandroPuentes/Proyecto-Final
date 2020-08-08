@@ -5,9 +5,10 @@ from PIL import Image, ImageTk
 
 class AbstractProducto():
 
+   
     def __init__(self):
-        self.image = 'Ruta cualquiera'
-    
+        self.image='RutaAbstracta'
+
     def getImage(self):
         return self.image
 
@@ -21,6 +22,11 @@ class Pantalla1(AbstractProducto):
     def __init__(self):
         self.image = 'Sprites/Pantalla/1.png'
 
+class Pantalla2(AbstractProducto):
+    def __init__(self):
+        self.image = 'Sprites/Pantalla/3.jpeg'
+
+
 class PantallaAgrario(AbstractProducto):
     def __init__(self):
         self.image = 'Sprites/Pantalla/Agrario.png'
@@ -28,6 +34,8 @@ class PantallaAgrario(AbstractProducto):
 class PantallaBancolombia(AbstractProducto):
     def __init__(self):
         self.image = 'Sprites/Pantalla/Bancolombia.png'
+    
+
 
 class PantallaDavivienda(AbstractProducto):
     def __init__(self):

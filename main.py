@@ -1,17 +1,21 @@
 from Builder import *
-
+from Botones import *
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
 from PIL import Image, ImageTk
+from Registrar import registro
 
 class Cajero():
     def __init__(self):
+        self.estado = 1
+        self.datos = registro()
         ##ventana
         self.root = tk.Tk()
         self.root.title("Cajero")
         self.root.geometry("749x721")
         self.root.resizable(width=0, height=0)
+        self.bont1 = Boton1(self.root)
 
         ##fondo // ifo = Imagen Fondo Original
         self.ifo = Image.open("Sprites/Cajero/DiseñoSprites.png")
@@ -32,30 +36,63 @@ class Cajero():
         self.text1.place(x=423, y = 455)
         self.text2 = Label(self.root, text = "Registrarse" )
         self.text2.place(x=423, y = 360)
-        self.btn1 = Button(self.root,image=self.imgbtn, command = self.update)
+        self.btn1 = Button(self.root,image=self.imgbtn, command = self.btnBoton1)
         self.btn1.place(x=623,y=415)
+        print ("hola")
         self.btn2 = Button(self.root,image=self.imgbtn)
         self.btn2.place(x=623,y=330)
 
         self.root.mainloop()
     
     def setScreen(self, posicion):
-        self.options = [Image.open(self.getCarrusel(0)),Image.open(self.getCarrusel(1)), Image.open(self.getCarrusel(2)), Image.open(self.getCarrusel(3)), Image.open(self.getCarrusel(4))]
-        self.ii2 = self.options[posicion]
+        self.ii2 = Image.open(self.getCarrusel(posicion))
         self.ii2.thumbnail((465,365))
         self.ii2 = ImageTk.PhotoImage(self.ii2)
         return self.ii2 
 
     def update(self):
-        self.fondo.place(x=9999, y=9999)
-        self.nfondo = Label(self.root, image=self.setScreen(1))
+        ##self.fondo.place(x=9999, y=9999)
+        self.nfondo = Label(self.root, image=self.setScreen(0))
         self.nfondo.place(x=150,y=125)
+
+    def btnBoton1(self):
+        
+        if (self.estado==1):
+            self.nfondo = Label(self.root, image=self.setScreen(1))
+            self.nfondo.place(x=150,y=125)
+            self.bont1.registrar()
+            self.estado=2
+        elif(self.estado==2):
+            self.n2fondo = Label(self.root, image=self.setScreen(2))
+            self.n2fondo.place(x=150,y=125)
+            self.datos.setUsuario =self.bont1.getNombre
+            print(self.bont1.getNombre)
+            self.datos.setDocumento = self.bont1.getCedula()
+            self.datos.banco = self.bont1.getBanco
+            self.datos.clave = self.bont1.getClave
+            self.r = Text(self.root, width=76,height=10)
+            self.r.insert(INSERT, 'Nombre:' + str(self.datos.getUsuario)+'\n Cedula:'+ str(self.datos.getDocumento)+'\n Banco:'+ str(self.datos.getBanco))
+            self.r.config(state=DISABLED)
+            self.r.pack()
+            self.r.grid(row=0, column=0, padx=10, pady=10, sticky = N)
+            
+            self.estado = 3
+        elif(self.estado==3):
+            self.n2fondo = Label(self.root, image=self.setScreen(0))
+            self.n2fondo.place(x=150,y=125)
+
+            
+
+
+
 
     def getCarrusel(self, posicion):
         self.app = BuilderManager()
-        self.opciones = [BuilderPantalla0(), BuilderPantalla1(), BuilderAgrario(), BuilderBancolombia(), BuilderDavivienda()]
+        self.opciones = [BuilderPantalla0(), BuilderPantalla1(),BuilderPantalla2(), BuilderAgrario(), BuilderBancolombia(), BuilderDavivienda()]
         self.app.setBuilder(self.opciones[posicion])
         return self.app.buildCajero()
 
+    
 cajero = Cajero()
+
 

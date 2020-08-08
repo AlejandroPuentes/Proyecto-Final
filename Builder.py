@@ -28,6 +28,14 @@ class BuilderPantalla1(AbstractBuilder):
     def buildPantalla(self):
         return self.AbstractInterfaz.crearPantalla()
 
+class BuilderPantalla2(AbstractBuilder):
+
+    def __init__(self):
+        self.AbstractInterfaz = FabricaScreens2()
+    
+    def buildPantalla(self):
+        return self.AbstractInterfaz.crearPantalla()
+
 class BuilderAgrario(AbstractBuilder):
 
     def __init__(self):
