@@ -38,7 +38,6 @@ class Cajero():
         self.text2.place(x=423, y = 360)
         self.btn1 = Button(self.root,image=self.imgbtn, command = self.btnBoton1)
         self.btn1.place(x=623,y=415)
-        print ("hola")
         self.btn2 = Button(self.root,image=self.imgbtn)
         self.btn2.place(x=623,y=330)
 
@@ -65,21 +64,23 @@ class Cajero():
         elif(self.estado==2):
             self.n2fondo = Label(self.root, image=self.setScreen(2))
             self.n2fondo.place(x=150,y=125)
-            self.datos.setUsuario =self.bont1.getNombre
-            print(self.bont1.getNombre)
-            self.datos.setDocumento = self.bont1.getCedula()
-            self.datos.banco = self.bont1.getBanco
-            self.datos.clave = self.bont1.getClave
-            self.r = Text(self.root, width=76,height=10)
-            self.r.insert(INSERT, 'Nombre:' + str(self.datos.getUsuario)+'\n Cedula:'+ str(self.datos.getDocumento)+'\n Banco:'+ str(self.datos.getBanco))
+            self.datos.setUsuario(self.bont1.getNombre())
+            print(self.bont1.getNombre())
+            self.datos.setDocumento(self.bont1.getCedula())
+            print(self.bont1.getCedula())
+            self.datos.setBanco(self.bont1.getBanco())
+            print(self.bont1.getBanco())
+            self.datos.setClave(self.bont1.getClave())
+            print(self.bont1.getClave())
+            self.r = Text(self.root, width=30,height=10).place(x=250,y=150)
+            self.r.insert(INSERT, 'Nombre: ' + str(self.datos.getUsuario) +'\nCedula'+str(self.datos.getDocumento)+'\nBanco: '+str(self.datos.getBanco))
             self.r.config(state=DISABLED)
             self.r.pack()
-            self.r.grid(row=0, column=0, padx=10, pady=10, sticky = N)
-            
             self.estado = 3
         elif(self.estado==3):
             self.n2fondo = Label(self.root, image=self.setScreen(0))
             self.n2fondo.place(x=150,y=125)
+            
 
             
 
