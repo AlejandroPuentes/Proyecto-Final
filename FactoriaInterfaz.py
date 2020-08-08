@@ -19,6 +19,11 @@ class FabricaScreens(AbstractInterfaz):
     def crearPantalla(self):
         return Pantalla1().getImage()
 
+class FabricaScreens2(AbstractInterfaz):
+
+    def crearPantalla(self):
+        return Pantalla2().getImage()
+
 
 class FabricaAgrario(AbstractInterfaz):
 
