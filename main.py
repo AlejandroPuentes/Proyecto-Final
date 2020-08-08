@@ -64,6 +64,7 @@ class Cajero():
         elif(self.estado==2):
             self.n2fondo = Label(self.root, image=self.setScreen(2))
             self.n2fondo.place(x=150,y=125)
+            self.estado = 3
             self.datos.setUsuario(self.bont1.getNombre())
             print(self.bont1.getNombre())
             self.datos.setDocumento(self.bont1.getCedula())
@@ -72,11 +73,10 @@ class Cajero():
             print(self.bont1.getBanco())
             self.datos.setClave(self.bont1.getClave())
             print(self.bont1.getClave())
-            self.r = Text(self.root, width=30,height=10).place(x=250,y=150)
-            self.r.insert(INSERT, 'Nombre: ' + str(self.datos.getUsuario) +'\nCedula'+str(self.datos.getDocumento)+'\nBanco: '+str(self.datos.getBanco))
+            self.r = tk.Text(self.root, width=30,height=10).place(x=250,y=150)
+            self.r.insert(INSERT, 'Nombre: ' + str(self.datos.getUsuario()) +'\nCedula'+str(self.datos.getDocumento())+'\nBanco: '+str(self.datos.getBanco()))
             self.r.config(state=DISABLED)
-            self.r.pack()
-            self.estado = 3
+            self.r.pack()            
         elif(self.estado==3):
             self.n2fondo = Label(self.root, image=self.setScreen(0))
             self.n2fondo.place(x=150,y=125)
