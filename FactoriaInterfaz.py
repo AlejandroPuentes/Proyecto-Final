@@ -24,10 +24,6 @@ class FabricaScreens2(AbstractInterfaz):
     def crearPantalla(self):
         return Pantalla2().getImage()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ee82c41177e4f63ca92cfc8a0077d5340c1c3a96
 
 class FabricaAgrario(AbstractInterfaz):
 

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-from Cajero import *
-=======
 from Builder import *
 from Botones import *
 import tkinter as tk
@@ -94,12 +91,8 @@ class Cajero():
         self.opciones = [BuilderPantalla0(), BuilderPantalla1(),BuilderPantalla2(), BuilderAgrario(), BuilderBancolombia(), BuilderDavivienda()]
         self.app.setBuilder(self.opciones[posicion])
         return self.app.buildCajero()
->>>>>>> ee82c41177e4f63ca92cfc8a0077d5340c1c3a96
 
     
 cajero = Cajero()
-<<<<<<< HEAD
-=======
 
 
->>>>>>> ee82c41177e4f63ca92cfc8a0077d5340c1c3a96
