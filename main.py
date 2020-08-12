@@ -1,10 +1,13 @@
 from Builder import *
 from Botones import *
+from Registrar import registro
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
+
 from PIL import Image, ImageTk
-from Registrar import registro
+
 
 class Cajero():
     def __init__(self):
@@ -32,13 +35,13 @@ class Cajero():
         ##imagen de pantalla // ii = imagen interfaces
         self.fondo = Label(self.root,image=self.setScreen(0), width = 445, height = 365 )
         self.fondo.place(x=150,y=125)
-        self.text1 = Label(self.root, text = "Iniciar Sesión" )
+        self.text1 = Label(self.root, text = "Registrarse" )
         self.text1.place(x=423, y = 455)
-        self.text2 = Label(self.root, text = "Registrarse" )
+        self.text2 = Label(self.root, text = "Iniciar Sesión" )
         self.text2.place(x=423, y = 360)
         self.btn1 = Button(self.root,image=self.imgbtn, command = self.btnBoton1)
         self.btn1.place(x=623,y=415)
-        self.btn2 = Button(self.root,image=self.imgbtn)
+        self.btn2 = Button(self.root,image=self.imgbtn, command = self.btnBoton2)
         self.btn2.place(x=623,y=330)
 
         self.root.mainloop()
@@ -49,41 +52,61 @@ class Cajero():
         self.ii2 = ImageTk.PhotoImage(self.ii2)
         return self.ii2 
 
-    def update(self):
-        ##self.fondo.place(x=9999, y=9999)
-        self.nfondo = Label(self.root, image=self.setScreen(0))
-        self.nfondo.place(x=150,y=125)
-
     def btnBoton1(self):
         
-        if (self.estado==1):
+        if self.estado==1:
+
+            
             self.nfondo = Label(self.root, image=self.setScreen(1))
             self.nfondo.place(x=150,y=125)
+            self.text3 = Label(self.root, text = "Continuar" )
+            self.text3.place(x=423, y = 455)
+            self.text4 = Label(self.root, text = "Volver" )
+            self.text4.place(x=423, y = 360)
             self.bont1.registrar()
-            self.estado=2
-        elif(self.estado==2):
+
+            self.estado = 2
+
+        elif self.estado==2:
+            
+
             self.n2fondo = Label(self.root, image=self.setScreen(2))
             self.n2fondo.place(x=150,y=125)
-            self.estado = 3
             self.datos.setUsuario(self.bont1.getNombre())
-            print(self.bont1.getNombre())
             self.datos.setDocumento(self.bont1.getCedula())
-            print(self.bont1.getCedula())
             self.datos.setBanco(self.bont1.getBanco())
-            print(self.bont1.getBanco())
             self.datos.setClave(self.bont1.getClave())
-            print(self.bont1.getClave())
-            self.r = tk.Text(self.root, width=30,height=10).place(x=250,y=150)
-            ##self.r.insert(INSERT, 'Nombre: ' + str(self.datos.getUsuario()) +'\nCedula'+str(self.datos.getDocumento())+'\nBanco: '+str(self.datos.getBanco()))
-            self.r.pack()            
-        elif(self.estado==3):
+            self.r = Text(self.root, width=30,height=10)
+            self.r.place(x=250,y=150)
+            self.r.insert(INSERT, 'Se ha creado su cuenta con éxito.')
+            self.r.insert(INSERT, '\nNombre: ' + str(self.datos.getUsuario()) +'\nCedula: '+str(self.datos.getDocumento())+'\nBanco: '+str(self.datos.getBanco()))
+            self.text5 = Label(self.root, text = "Continuar" )
+            self.text5.place(x=423, y = 360)
+            self.estado = 3 
+
+            
+        elif self.estado==3:
+
             self.n2fondo = Label(self.root, image=self.setScreen(0))
             self.n2fondo.place(x=150,y=125)
+            self.text1 = Label(self.root, text = "Registrar" )
+            self.text1.place(x=423, y = 455)
+            self.text2 = Label(self.root, text = "Iniciar Sesión" )
+            self.text2.place(x=423, y = 360)
             self.estado=1
             
+    def btnBoton2(self):
 
-            
+        if self.estado==2:
 
+            self.nfondo = Label(self.root,image=self.setScreen(0), width = 445, height = 365 )
+            self.nfondo.place(x=150,y=125)
+            self.text1 = Label(self.root, text = "Registrarse" )
+            self.text1.place(x=423, y = 455)
+            self.text2 = Label(self.root, text = "Iniciar Sesión" )
+            self.text2.place(x=423, y = 360)
+
+            self.estado = 1
 
 
 

@@ -11,18 +11,20 @@ class Boton1():
     
     
     def registrar (self):
-        lblUsuario =tk.Label(self.ventana,text= "Nombre").place(x=200, y=150)
+        self.lblUsuario =tk.Label(self.ventana,text= "Nombre").place(x=200, y=150)
         self.nombreUsu = tk.StringVar()
-        txtUsuario = ttk.Entry(self.ventana,textvariable=self.nombreUsu).place(x=250, y=150)
-        lblCedula =tk.Label(self.ventana,text="Cedula").place(x=200, y=190)
+        self.txtUsuario = ttk.Entry(self.ventana,textvariable=self.nombreUsu).place(x=250, y=150)
+        self.lblCedula =tk.Label(self.ventana,text="Cedula").place(x=200, y=190)
         self.cedula = tk.StringVar()
-        txtcedula = ttk.Entry(self.ventana,textvariable=self.cedula).place(x=250, y=190)
-        lblBanco =tk.Label(self.ventana,text= "Banco").place(x=200, y=230)
+        self.txtcedula = ttk.Entry(self.ventana,textvariable=self.cedula).place(x=250, y=190)
+        self.lblBanco =tk.Label(self.ventana,text= "Banco").place(x=200, y=230)
         self.banco = tk.StringVar()
-        txtbanco = ttk.Entry(self.ventana,textvariable=self.banco).place(x=250, y=230)
-        lblClave =tk.Label(self.ventana,text= "Clave").place(x=200, y=270)
+        self.txtbanco = ttk.Entry(self.ventana,textvariable=self.banco).place(x=250, y=230)
+        self.lblClave =tk.Label(self.ventana,text= "Clave").place(x=200, y=270)
         self.clave = tk.StringVar()
-        txtclave = ttk.Entry(self.ventana,textvariable=self.clave).place(x=250, y=270)
+        self.txtclave = ttk.Entry(self.ventana,textvariable=self.clave).place(x=250, y=270)
+    
+
     
     def getNombre(self):
         return self.nombreUsu.get()
